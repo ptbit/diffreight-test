@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/diffreight-test/static/css/main.36b6ebab.css",
+    "main.js": "/diffreight-test/static/js/main.cc6460d2.js",
+    "index.html": "/diffreight-test/index.html",
+    "main.36b6ebab.css.map": "/diffreight-test/static/css/main.36b6ebab.css.map",
+    "main.cc6460d2.js.map": "/diffreight-test/static/js/main.cc6460d2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.36b6ebab.css",
+    "static/js/main.cc6460d2.js"
+  ]
+}
