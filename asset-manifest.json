@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/diffreight-test/static/css/main.36b6ebab.css",
-    "main.js": "/diffreight-test/static/js/main.cc6460d2.js",
+    "main.css": "/diffreight-test/static/css/main.67ea583d.css",
+    "main.js": "/diffreight-test/static/js/main.a701266b.js",
     "index.html": "/diffreight-test/index.html",
-    "main.36b6ebab.css.map": "/diffreight-test/static/css/main.36b6ebab.css.map",
-    "main.cc6460d2.js.map": "/diffreight-test/static/js/main.cc6460d2.js.map"
+    "main.67ea583d.css.map": "/diffreight-test/static/css/main.67ea583d.css.map",
+    "main.a701266b.js.map": "/diffreight-test/static/js/main.a701266b.js.map"
   },
   "entrypoints": [
-    "static/css/main.36b6ebab.css",
-    "static/js/main.cc6460d2.js"
+    "static/css/main.67ea583d.css",
+    "static/js/main.a701266b.js"
   ]
 }
