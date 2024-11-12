@@ -20,6 +20,7 @@ export const AddTodo: React.FC<Props> = ({ addTodo }) => {
 
   return (
     <form onSubmit={onFormSubmit}>
+      <span>Add Todo: </span>
       <input
         type='text'
         placeholder='new title'

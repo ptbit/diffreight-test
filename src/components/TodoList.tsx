@@ -6,12 +6,14 @@ type Props = {
   todos: Todo[];
   deleteTodo: (id: number) => void;
   completeTodo: (id: number) => void;
+  editTodo: (editedTodo: Todo) => void;
 };
 
 export const TodoList: React.FC<Props> = ({
   todos,
   deleteTodo,
   completeTodo,
+  editTodo,
 }) => {
   console.log(todos);
   return (
@@ -22,6 +24,7 @@ export const TodoList: React.FC<Props> = ({
           key={todo.id}
           deleteTodo={deleteTodo}
           completeTodo={completeTodo}
+          editTodo={editTodo}
         />
       ))}
     </div>

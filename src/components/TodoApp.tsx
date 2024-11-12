@@ -3,14 +3,24 @@ import { TodoList } from './TodoList';
 import { Todo } from '../types/Todo';
 import { AddTodo } from './AddTodo';
 
-export const TodoApp = () => {
+export const TodoApp: React.FC = () => {
   const initialState = [
     { id: 1, title: 'todo 1', description: 'desc 1', completed: false },
     { id: 2, title: 'todo 2', description: 'desc 2', completed: false },
     { id: 3, title: 'todo 3', description: 'desc 3', completed: true },
     { id: 4, title: 'todo 4', description: 'desc 4', completed: false },
   ];
+
   const [todos, setTodos] = useState(initialState);
+
+  const editTodo = (editedTodo: Todo) => {
+    console.log('change todo', editedTodo);
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === editedTodo.id ?  editedTodo  : todo
+      )
+    );
+  };
 
   const deleteTodo = (id: number) => {
     setTodos(todos.filter((oneTodo) => oneTodo.id !== id));
@@ -41,6 +51,7 @@ export const TodoApp = () => {
         todos={todos}
         deleteTodo={deleteTodo}
         completeTodo={completeTodo}
+        editTodo={editTodo}
       />
     </div>
   );

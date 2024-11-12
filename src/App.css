@@ -49,10 +49,16 @@ footer {
   display: flex;
   gap: 10px;
   padding: 15px 10px;
-  flex-direction: column;
+  /* flex-direction: column; */
   width: 50%;
   align-items: center;
+  justify-content: space-between;
   border: 1px dashed;
+}
+
+.content {
+  /* display: flex; */
+  /* flex-direction: column; */
 }
 
 .buttons {
@@ -65,4 +71,9 @@ footer {
 }
 .green {
   background-color: rgba(30, 255, 0, 0.5);
+}
+
+.completed {
+  /* text-decoration: line-through; */
+  background-color: rgba(0, 128, 0, 0.171);
 }
