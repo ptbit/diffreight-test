@@ -1,39 +1,66 @@
 import React, { useState } from 'react';
-import { Todo } from '../types/Todo';
+import { PlusIcon } from './icons/PlusIcon';
+import cn from 'classnames';
+import s from './AddTodo.module.css';
 
 type Props = {
-  // todo: Todo;
-  // deleteTodo: (id: number) => void;
-  // completeTodo: (id: number) => void;
-  addTodo: (title:string, description: string) => void;
+  addTodo: (title: string, description: string) => void;
 };
 
 export const AddTodo: React.FC<Props> = ({ addTodo }) => {
   const [title, setTitle] = useState('');
+  const [titleError, setTitleError] = useState(false);
   const [description, setDescription] = useState('');
+  const [descriptionError, setDescriptionError] = useState(false);
 
   const onFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(title, description);
-    addTodo( title, description);
+    if (!title) {
+      setTitleError(true);
+    }
+    if (!description) {
+      setDescriptionError(true);
+    }
+    if (title && description) {
+      addTodo(title, description);
+      setTitle('');
+      setDescription('');
+      setTitleError(false);
+      setDescriptionError(false);
+    }
   };
 
   return (
-    <form onSubmit={onFormSubmit}>
-      <span>Add Todo: </span>
+    <form onSubmit={onFormSubmit} className={s.form}>
+      <span>Нове завдання: </span>
       <input
+        className={cn(s.input, {
+          [s.error]: titleError,
+        })}
         type='text'
-        placeholder='new title'
+        placeholder='Назва'
         value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={(e) => {
+          setTitle(e.target.value);
+          setTitleError(false);
+        }}
       />
       <input
+        className={cn(s.input, {
+          [s.error]: descriptionError,
+        })}
         type='text'
-        placeholder='new description'
+        placeholder='Опис'
         value={description}
-        onChange={(e) => setDescription(e.target.value)}
+        onChange={(e) => {
+          setDescription(e.target.value);
+          setDescriptionError(false);
+        }}
       />
-      <button type='submit'>add</button>
+
+      <button className={s.submit} type='submit'>
+        <PlusIcon />
+      </button>
     </form>
   );
 };
