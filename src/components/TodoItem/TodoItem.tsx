@@ -34,7 +34,7 @@ export const TodoItem: React.FC<Props> = ({
     }
     setEditMode((prev) => !prev);
   };
-
+  todo.file && console.log('-->', todo.file);
   return (
     <li
       className={cn([s.todoItem], {
@@ -92,6 +92,19 @@ export const TodoItem: React.FC<Props> = ({
               <span className={s.rowTitle}>Виконання: </span>
               <span>{todo.completed ? 'Так' : 'Ні'}</span>
             </div>
+            {todo.file && (
+              <div>
+                <img
+                  src={URL.createObjectURL(todo.file)}
+                  alt='Preview'
+                  style={{
+                    width: '100px',
+                    height: '100px',
+                    objectFit: 'cover',
+                  }}
+                />
+              </div>
+            )}
           </>
         )}
       </div>

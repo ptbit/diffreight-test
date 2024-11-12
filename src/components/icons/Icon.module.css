@@ -12,7 +12,7 @@
 }
 
 .delete:hover * {
-  stroke: rgba(255, 0, 0, 0.6);
+  stroke: var(--redColor);
 }
 
 .edit:hover,
@@ -21,12 +21,9 @@
 }
 
 .edit:hover * {
-  stroke: rgb(30, 164, 30);
+  stroke: var(--greenColor);
 }
 
-/* .ico:hover * {
-  stroke: red;
-} */
 .active * {
-  stroke: rgb(30, 164, 30);
+  stroke: var(--greenColor);
 }

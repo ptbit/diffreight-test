@@ -12,6 +12,8 @@
   color: white;
   
   --mainColor: grey;
+  --greenColor: rgb(30, 164, 30);
+  --redColor: rgba(255, 0, 0, 0.6);
   --widthDesktop: 50%;
   --widthTablet: 70%;
   --widthMobile: 90%;

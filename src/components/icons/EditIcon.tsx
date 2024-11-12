@@ -6,11 +6,10 @@ type Props = {
 };
 
 export const EditIcon: React.FC<Props> = ({ active }) => {
-  console.log('Edit', active)
   return (
     <svg
       className={classNames(s.edit, {
-        [s.active]: active
+        [s.active]: active,
       })}
       viewBox='0 0 24 24'
       fill='none'

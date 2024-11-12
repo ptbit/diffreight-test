@@ -30,11 +30,11 @@
 
 .submit:hover {
   background-color: rgba(128, 128, 128, 0.3);
-  color: rgb(148, 218, 141);
+  color: var(--greenColor);
 }
 
 .error {
-  border: 2px solid red !important;
+  border: 2px solid var(--redColor);
 }
 
 @media (max-width: 899px) {
