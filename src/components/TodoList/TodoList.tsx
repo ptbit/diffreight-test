@@ -1,6 +1,7 @@
 import React from 'react';
-import { Todo } from '../types/Todo';
-import { TodoItem } from './TodoItem';
+import { Todo } from '../../types/Todo';
+import { TodoItem } from '../TodoItem/TodoItem';
+import s from './TodoList.module.css';
 
 type Props = {
   todos: Todo[];
@@ -15,9 +16,8 @@ export const TodoList: React.FC<Props> = ({
   completeTodo,
   editTodo,
 }) => {
-  console.log(todos);
   return (
-    <div className='todos'>
+    <ul className={s.todos}>
       {todos.map((todo) => (
         <TodoItem
           todo={todo}
@@ -27,6 +27,6 @@ export const TodoList: React.FC<Props> = ({
           editTodo={editTodo}
         />
       ))}
-    </div>
+    </ul>
   );
 };

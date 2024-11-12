@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { TodoList } from './TodoList';
+import { TodoList } from './TodoList/TodoList';
 import { Todo } from '../types/Todo';
-import { AddTodo } from './AddTodo';
+import { AddTodo } from './AddTodo/AddTodo';
 
 export const TodoApp: React.FC = () => {
   const initialState = [
@@ -14,11 +14,8 @@ export const TodoApp: React.FC = () => {
   const [todos, setTodos] = useState(initialState);
 
   const editTodo = (editedTodo: Todo) => {
-    console.log('change todo', editedTodo);
     setTodos((prevTodos) =>
-      prevTodos.map((todo) =>
-        todo.id === editedTodo.id ?  editedTodo  : todo
-      )
+      prevTodos.map((todo) => (todo.id === editedTodo.id ? editedTodo : todo))
     );
   };
 

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { PlusIcon } from './icons/PlusIcon';
 import cn from 'classnames';
 import s from './AddTodo.module.css';
 
@@ -59,7 +58,7 @@ export const AddTodo: React.FC<Props> = ({ addTodo }) => {
       />
 
       <button className={s.submit} type='submit'>
-        <PlusIcon />
+        Додати завдання
       </button>
     </form>
   );

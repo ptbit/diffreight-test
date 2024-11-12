@@ -1,11 +1,11 @@
 .form {
-  width: 50%;
+  width: var(--widthDesktop);
   margin: 0 auto;
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid rgb(50, 73, 201);
+  border: 2px solid var(--mainColor);
   gap: 10px;
   flex-wrap: wrap;
 }
@@ -19,21 +19,32 @@
 
 .submit {
   cursor: pointer;
-  border: 1px solid rgb(50, 73, 201);
+  border: 1px solid var(--mainColor);
   padding: 10px;
   width: 100%;
   background-color: transparent;
   transition: all 0.3s linear;
+  color: white;
+  font-size: 25px;
 }
 
 .submit:hover {
   background-color: rgba(128, 128, 128, 0.3);
-}
-
-.submit:hover * {
-  fill: rgb(117, 136, 241);
+  color: rgb(148, 218, 141);
 }
 
 .error {
   border: 2px solid red !important;
+}
+
+@media (max-width: 899px) {
+  .form {
+    width: var(--widthTablet);
+  }
+}
+
+@media (max-width: 499px) {
+  .form {
+    width: var(--widthMobile);
+  }
 }
