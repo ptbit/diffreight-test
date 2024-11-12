@@ -6,14 +6,12 @@ import s from './TodoList.module.css';
 type Props = {
   todos: Todo[];
   deleteTodo: (id: number) => void;
-  completeTodo: (id: number) => void;
   editTodo: (editedTodo: Todo) => void;
 };
 
 export const TodoList: React.FC<Props> = ({
   todos,
   deleteTodo,
-  completeTodo,
   editTodo,
 }) => {
   return (
@@ -23,7 +21,6 @@ export const TodoList: React.FC<Props> = ({
           todo={todo}
           key={todo.id}
           deleteTodo={deleteTodo}
-          completeTodo={completeTodo}
           editTodo={editTodo}
         />
       ))}

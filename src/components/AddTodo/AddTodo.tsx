@@ -3,7 +3,7 @@ import cn from 'classnames';
 import s from './AddTodo.module.css';
 
 type Props = {
-  addTodo: (title: string, description: string) => void;
+  addTodo: (title: string, description: string, file: File | null) => void;
 };
 
 export const AddTodo: React.FC<Props> = ({ addTodo }) => {
@@ -11,6 +11,7 @@ export const AddTodo: React.FC<Props> = ({ addTodo }) => {
   const [titleError, setTitleError] = useState(false);
   const [description, setDescription] = useState('');
   const [descriptionError, setDescriptionError] = useState(false);
+  const [file, setFile] = useState<File | null>(null);
 
   const onFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,11 +22,24 @@ export const AddTodo: React.FC<Props> = ({ addTodo }) => {
       setDescriptionError(true);
     }
     if (title && description) {
-      addTodo(title, description);
+      addTodo(title, description, file);
       setTitle('');
       setDescription('');
       setTitleError(false);
       setDescriptionError(false);
+      setFile(null);
+    }
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files ? e.target.files[0] : null;
+
+    if (selectedFile) {
+      if (selectedFile.type.startsWith('image/')) {
+        setFile(selectedFile);
+      } else {
+        alert('Будь ласка, виберіть файл зображення');
+      }
     }
   };
 
@@ -55,6 +69,14 @@ export const AddTodo: React.FC<Props> = ({ addTodo }) => {
           setDescription(e.target.value);
           setDescriptionError(false);
         }}
+      />
+      <label className='file_label' htmlFor='file_input'>Додати файл: {file && file.name}</label>
+      <input
+        id='file_input'
+        className='file_input'
+        type='file'
+        accept='.jpg, .jpeg, .png'
+        onChange={handleFileChange}
       />
 
       <button className={s.submit} type='submit'>

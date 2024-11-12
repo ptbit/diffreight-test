@@ -10,14 +10,13 @@
   flex-direction: column;
   background-color: #282c34;
   color: white;
-  
+
   --mainColor: grey;
   --greenColor: rgb(30, 164, 30);
   --redColor: rgba(255, 0, 0, 0.6);
   --widthDesktop: 50%;
   --widthTablet: 70%;
   --widthMobile: 90%;
-
 }
 
 header {
@@ -29,7 +28,6 @@ header {
   font-size: 30px;
 }
 
-
 main {
   flex: 1;
 }
@@ -40,15 +38,17 @@ footer {
 }
 
 
-
-
-/* .red {
-  background-color: rgba(255, 0, 0, 0.5);
-}
-.green {
-  background-color: rgba(30, 255, 0, 0.5);
-} */
-
 .completed {
   background-color: rgba(0, 128, 0, 0.171);
+}
+
+
+.file_label {
+  border: 1px dashed white;
+  padding: 10px 15px;
+  width: 100%;
+}
+.file_input {
+  visibility: hidden;
+  display: none;
 }

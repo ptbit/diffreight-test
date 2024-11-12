@@ -4,24 +4,20 @@ import cn from 'classnames';
 import s from './TodoItem.module.css';
 import { DeleteIcon } from '../icons/DeleteIcon';
 import { EditIcon } from '../icons/EditIcon';
+import { DeleteFileIcon } from '../icons/DeleteFileIcon';
 
 type Props = {
   todo: Todo;
   deleteTodo: (id: number) => void;
-  completeTodo: (id: number) => void;
   editTodo: (editedTodo: Todo) => void;
 };
 
-export const TodoItem: React.FC<Props> = ({
-  todo,
-  deleteTodo,
-  completeTodo,
-  editTodo,
-}) => {
+export const TodoItem: React.FC<Props> = ({ todo, deleteTodo, editTodo }) => {
   const [editMode, setEditMode] = useState(false);
   const [newTitle, setNewTitle] = useState(todo.title);
   const [newDescription, setNewDescription] = useState(todo.description);
   const [newCompleted, setNewCompleted] = useState(todo.completed);
+  const [newFile, setNewFile] = useState(todo.file);
 
   const editHandler = () => {
     if (editMode) {
@@ -30,11 +26,24 @@ export const TodoItem: React.FC<Props> = ({
         title: newTitle,
         description: newDescription,
         completed: newCompleted,
+        file: newFile,
       });
     }
     setEditMode((prev) => !prev);
   };
-  todo.file && console.log('-->', todo.file);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files ? e.target.files[0] : null;
+
+    if (selectedFile) {
+      if (selectedFile.type.startsWith('image/')) {
+        setNewFile(selectedFile);
+      } else {
+        alert('Будь ласка, виберіть файл зображення');
+      }
+    }
+  };
+
   return (
     <li
       className={cn([s.todoItem], {
@@ -74,6 +83,41 @@ export const TodoItem: React.FC<Props> = ({
                   setNewCompleted((prev) => !prev);
                 }}
               />
+            </div>
+
+            <div className={s.row}>
+              {newFile && (
+                <div>
+                  <img
+                    src={URL.createObjectURL(newFile)}
+                    alt='Preview'
+                    style={{
+                      width: '100px',
+                      height: '100px',
+                      objectFit: 'cover',
+                    }}
+                  />
+                </div>
+              )}
+              <label
+                className='file_label'
+                htmlFor={`edit_file_input_${todo.id}`}
+              >
+                {newFile && newFile.name
+                  ? `Змінити файл: ${newFile && newFile.name}`
+                  : 'Додати файл'}
+              </label>
+
+              <input
+                id={`edit_file_input_${todo.id}`}
+                className='file_input'
+                type='file'
+                accept='.jpg, .jpeg, .png'
+                onChange={handleFileChange}
+              />
+              <button className={s.button} onClick={() => setNewFile(null)}>
+                <DeleteFileIcon />
+              </button>
             </div>
           </>
         ) : (
