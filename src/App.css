@@ -1,7 +1,10 @@
 .App {
   text-align: center;
   background-color: #282c34;
+  color: white;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -16,24 +19,50 @@
 }
 
 .App-header {
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+main {
+  flex: 1;
+}
+
+header,
+footer {
+  padding: 20px 10px;
+}
+
+.todos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todoItem {
+  display: flex;
+  gap: 10px;
+  padding: 15px 10px;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  border: 1px dashed;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.red {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+.green {
+  background-color: rgba(30, 255, 0, 0.5);
 }
