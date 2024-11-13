@@ -44,6 +44,12 @@ export const TodoItem: React.FC<Props> = ({ todo, deleteTodo, editTodo }) => {
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      editHandler();
+    }
+  };
+
   return (
     <li
       className={cn([s.todoItem], {
@@ -58,7 +64,8 @@ export const TodoItem: React.FC<Props> = ({ todo, deleteTodo, editTodo }) => {
               <input
                 className={s.input}
                 value={newTitle}
-                onChange={(e) => setNewTitle(e.target.value)}
+                onChange={e => setNewTitle(e.target.value)}
+                onKeyDown={handleKeyDown} 
               />
             </div>
             <div className={s.row}>
@@ -67,6 +74,7 @@ export const TodoItem: React.FC<Props> = ({ todo, deleteTodo, editTodo }) => {
                 className={s.input}
                 value={newDescription}
                 onChange={(e) => setNewDescription(e.target.value)}
+                onKeyDown={handleKeyDown} 
               />
             </div>
             <div className={s.row}>
