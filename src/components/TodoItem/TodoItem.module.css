@@ -3,9 +3,12 @@
   display: flex;
   gap: 10px;
   padding: 10px 20px;
-  /* align-items: center; */
   justify-content: space-between;
   border: 1px solid var(--mainColor);
+}
+
+.completed {
+  background-color: rgba(0, 128, 0, 0.171);
 }
 
 .input {
@@ -56,6 +59,19 @@
   background-color: transparent;
   cursor: pointer;
 }
+
+.file_label {
+  border: 1px dashed var(--mainColor);
+  padding: 10px 15px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.file_input {
+  visibility: hidden;
+  display: none;
+}
+
 
 @media (max-width: 899px) {
   .todoItem {

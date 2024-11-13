@@ -9,7 +9,9 @@ function App() {
       <main>
         <TodoApp />
       </main>
-      <footer>footer</footer>
+      <footer>
+        Тестове завдання для DiFFreight LLC - {new Date().getFullYear()}
+      </footer>
     </div>
   );
 }

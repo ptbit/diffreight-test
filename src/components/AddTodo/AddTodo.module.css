@@ -24,7 +24,7 @@
   width: 100%;
   background-color: transparent;
   transition: all 0.3s linear;
-  color: white;
+  color: var(--mainColor);
   font-size: 25px;
 }
 
@@ -36,6 +36,19 @@
 .error {
   border: 2px solid var(--redColor);
 }
+
+.file_label {
+  border: 1px dashed var(--mainColor);
+  padding: 10px 15px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.file_input {
+  visibility: hidden;
+  display: none;
+}
+
 
 @media (max-width: 899px) {
   .form {

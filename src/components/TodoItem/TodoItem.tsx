@@ -47,7 +47,7 @@ export const TodoItem: React.FC<Props> = ({ todo, deleteTodo, editTodo }) => {
   return (
     <li
       className={cn([s.todoItem], {
-        completed: todo.completed,
+        [s.completed]: todo.completed,
       })}
     >
       <div className={s.content}>
@@ -56,9 +56,7 @@ export const TodoItem: React.FC<Props> = ({ todo, deleteTodo, editTodo }) => {
             <div className={s.row}>
               <span className={s.rowTitle}>Назва: </span>
               <input
-                className={cn(s.input, {
-                  // [s.error]: descriptionError,
-                })}
+                className={s.input}
                 value={newTitle}
                 onChange={(e) => setNewTitle(e.target.value)}
               />
@@ -66,9 +64,7 @@ export const TodoItem: React.FC<Props> = ({ todo, deleteTodo, editTodo }) => {
             <div className={s.row}>
               <span className={s.rowTitle}>Опис: </span>
               <input
-                className={cn(s.input, {
-                  // [s.error]: descriptionError,
-                })}
+                className={s.input}
                 value={newDescription}
                 onChange={(e) => setNewDescription(e.target.value)}
               />
@@ -100,7 +96,7 @@ export const TodoItem: React.FC<Props> = ({ todo, deleteTodo, editTodo }) => {
                 </div>
               )}
               <label
-                className='file_label'
+                className={s.file_label}
                 htmlFor={`edit_file_input_${todo.id}`}
               >
                 {newFile && newFile.name
@@ -110,7 +106,7 @@ export const TodoItem: React.FC<Props> = ({ todo, deleteTodo, editTodo }) => {
 
               <input
                 id={`edit_file_input_${todo.id}`}
-                className='file_input'
+                className={s.file_input}
                 type='file'
                 accept='.jpg, .jpeg, .png'
                 onChange={handleFileChange}

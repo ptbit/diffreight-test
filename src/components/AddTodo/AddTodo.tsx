@@ -70,10 +70,12 @@ export const AddTodo: React.FC<Props> = ({ addTodo }) => {
           setDescriptionError(false);
         }}
       />
-      <label className='file_label' htmlFor='file_input'>Додати файл: {file && file.name}</label>
+      <label className={s.file_label} htmlFor='file_input'>
+        Додати файл: {file && file.name}
+      </label>
       <input
         id='file_input'
-        className='file_input'
+        className={s.file_input}
         type='file'
         accept='.jpg, .jpeg, .png'
         onChange={handleFileChange}

@@ -1,3 +1,13 @@
+:root {
+  --mainBgColor: #282c34;
+  --mainColor: #8a8686;
+  --greenColor: #1ea41e;
+  --redColor: #ff000099;
+  --widthDesktop: 50%;
+  --widthTablet: 70%;
+  --widthMobile: 90%;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,15 +18,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #282c34;
+  background-color: var(--mainBgColor);
   color: white;
-
-  --mainColor: grey;
-  --greenColor: rgb(30, 164, 30);
-  --redColor: rgba(255, 0, 0, 0.6);
-  --widthDesktop: 50%;
-  --widthTablet: 70%;
-  --widthMobile: 90%;
 }
 
 header {
@@ -32,23 +35,7 @@ main {
   flex: 1;
 }
 
-header,
 footer {
   padding: 20px 10px;
-}
-
-
-.completed {
-  background-color: rgba(0, 128, 0, 0.171);
-}
-
-
-.file_label {
-  border: 1px dashed white;
-  padding: 10px 15px;
-  width: 100%;
-}
-.file_input {
-  visibility: hidden;
-  display: none;
+  text-align: center;
 }
